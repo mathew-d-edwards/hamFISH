@@ -84,7 +84,7 @@ def rotate_dapi_cellpos(dapiPath, cellposPath, rotation_angle, flip_horizontal):
         axes[0].scatter(cluster_loc['X'], cluster_loc['Y'], s = 5)
         axes[1].imshow(open_cellpose, vmax = 1, origin = 'lower')
         axes[1].scatter(cluster_loc['X'], cluster_loc['Y'], s = 5)
-        plt.title('origin view ' + view + dapiPath.parts[-2])
+        plt.suptitle(f'Original orientation {dapiPath.parts[-2]} {view}')
         plt.show()
         
         ## rotate dapi
@@ -124,7 +124,7 @@ def rotate_dapi_cellpos(dapiPath, cellposPath, rotation_angle, flip_horizontal):
         axes[0].scatter(qx, qy, s = 5)
         axes[1].imshow(rotated_cellpose, vmax = 1, origin = 'lower')
         axes[1].scatter(qx, qy, s = 5)
-        plt.suptitle('view: {}, exp: {}, rotated view and cell pos'.format(view, dapiPath.parts[-2]))
+        plt.suptitle(f'Rotated {dapiPath.parts[-2]} {view}')
         plt.show()
         ###
         cluster_loc['X'] = qx
